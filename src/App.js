@@ -4,7 +4,7 @@ import BT1 from './bt1/bt1';
 function App() {
   return (
     <div className="App">
-      <BT1/>
+      <BT1 />
     </div>
   );
 }

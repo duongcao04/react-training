@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 15 Pro Max 256GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2023_9_20_638307989548944936_iphone-15-promax-xanh-1.jpg",
+      "price": 29390000
+    },
+    {
+      "id": 2,
+      "name": "Xiaomi Poco M6 Pro 8GB 256GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_1_15_638409143574764462_xiaomi-poco-m6-pro-den-3.jpg",
+      "price": 59990000
+    },
+    {
+      "id": 3,
+      "name": "Samsung Galaxy Z Fold6 5G 256GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/samsung_galaxy_z_fold6_pink_bec1eeef80.png",
+      "price": 43990000
+    },
+    {
+      "id": 4,
+      "name": "Tecno Spark Go 2024 4GB 64GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/360x0/filters:quality(60)/2024_4_24_638495503532379537_tecno-spark-go-trang-4.jpg",
+      "price": 1990000
+    },
+    {
+      "id": 5,
+      "name": "Tecno Camon 30 12GB-256GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_5_23_638520678190023465_tecno-camon-30-den-1.jpg",
+      "price": 6190000
+    },
+    {
+      "id": 6,
+      "name": "Samsung Galaxy A55 5G 128GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_3_19_638464670499727742_samsung-galaxy-a55-den-png-2.png",
+      "price": 9290000
+    },
+    {
+      "id": 7,
+      "name": "Samsung Galaxy S24 Ultra 5G 256GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_1_17_638410793331870061_samsung-galaxy-s24-ultra-tim-1.png",
+      "price": 29990000
+    },
+    {
+      "id": 8,
+      "name": "Vivo Y03 4GB 64GB",
+      "featureImage": "https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_3_20_638465432002546836_vivo-y03-xanh-2.jpg",
+      "price": 2990000
+    }
+  ]
+}

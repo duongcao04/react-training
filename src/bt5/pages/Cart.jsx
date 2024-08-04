@@ -1,15 +1,33 @@
 import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCart } from '../redux/cartSlice';
+import {
+  decrementQuantity,
+  deleteCart,
+  incrementQuantity,
+} from '../redux/cartSlice';
+import { dialog } from '../../utils/helper';
 
 function Cart() {
   const SHIPPING = 15000;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
 
+  const optionDialog = {
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+  };
+
   const handleDeleteCart = (productId) => {
-    dispatch(deleteCart(productId));
+    const handleConfirm = () => {
+      dispatch(deleteCart(productId));
+    };
+    dialog(optionDialog, handleConfirm);
   };
 
   let totalAmount = function () {
@@ -42,10 +60,25 @@ function Cart() {
                       currency: 'VND',
                     })}
                   </p>
-                  <p className='mt-3'>
-                    Quantity:{' '}
-                    <span className='font-bold'>{product.quantity}</span>
-                  </p>
+                  <div className='mt-3 flex items-center justify-start gap-3'>
+                    <button
+                      className='size-[40px] rounded-lg bg-gray-200 hover:bg-gray-300 transition duration-200'
+                      onClick={() => {
+                        dispatch(decrementQuantity(product.id));
+                      }}
+                    >
+                      -
+                    </button>
+                    <p className='font-bold'>{product.quantity}</p>
+                    <button
+                      className='size-[40px] rounded-lg bg-gray-200 hover:bg-gray-300 transition duration-200'
+                      onClick={() => {
+                        dispatch(incrementQuantity(product.id));
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
               <IoMdClose

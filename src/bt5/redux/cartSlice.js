@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { notification } from '../../utils/helper';
 
 const cart = JSON.parse(localStorage.getItem('cart'));
 
 export const cartSlice = createSlice({
-  name: 'counter',
+  name: 'cart',
   initialState: { cart: cart ?? [] },
   reducers: {
     addCart: (state, action) => {
-      const newProduct = action.payload
+      const newProduct = action.payload;
       const foundProductExist = state.cart.findIndex(
         (product) => product.id === newProduct.id
       );
@@ -20,6 +21,7 @@ export const cartSlice = createSlice({
       }
 
       localStorage.setItem('cart', JSON.stringify(state.cart));
+      notification('Add successfully');
     },
 
     deleteCart: (state, action) => {
@@ -28,13 +30,43 @@ export const cartSlice = createSlice({
         (product) => product.id === productId
       );
 
-      state.cart.splice(foundProductIndex, 1);
-      
+      if (foundProductIndex !== -1) {
+        state.cart.splice(foundProductIndex, 1);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+      notification('Deleted!', 'success');
+    },
+    incrementQuantity: (state, action) => {
+      const productId = action.payload;
+
+      const foundProductExist = state.cart.findIndex(
+        (product) => product.id === productId
+      );
+
+      state.cart[foundProductExist].quantity++;
+
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
+    decrementQuantity: (state, action) => {
+      const productId = action.payload;
+
+      const foundProductExist = state.cart.findIndex(
+        (product) => product.id === productId
+      );
+
+      if (state.cart[foundProductExist].quantity === 1) {
+        state.cart[foundProductExist].quantity = 1;
+      } else {
+        state.cart[foundProductExist].quantity--;
+      }
+
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
   },
 });
 
-export const { addCart, deleteCart } = cartSlice.actions;
+export const { addCart, deleteCart, incrementQuantity, decrementQuantity } =
+  cartSlice.actions;
 const cartReducer = cartSlice.reducer;
 export default cartReducer;

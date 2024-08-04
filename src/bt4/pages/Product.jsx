@@ -18,7 +18,6 @@ export default function Product() {
 			});
 	}, []);
 	const handleAddCart = (product) => {
-		alert('Thêm sản phẩm vào giỏ hàng thành công');
 		dispatch(addCart(product));
 	};
 

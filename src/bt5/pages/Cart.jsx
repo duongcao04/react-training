@@ -30,6 +30,17 @@ function Cart() {
     dialog(optionDialog, handleConfirm);
   };
 
+  const handleDecrementCart = (product) => {
+    if (product.quantity > 1) {
+      dispatch(decrementQuantity(product.id));
+    } else {
+      const handleConfirm = () => {
+        dispatch(deleteCart(product.id));
+      };
+      dialog(optionDialog, handleConfirm);
+    }
+  };
+
   let totalAmount = function () {
     var total = 0;
     cart.forEach((product) => (total += product.price * product.quantity));
@@ -64,7 +75,7 @@ function Cart() {
                     <button
                       className='size-[40px] rounded-lg bg-gray-200 hover:bg-gray-300 transition duration-200'
                       onClick={() => {
-                        dispatch(decrementQuantity(product.id));
+                        handleDecrementCart(product);
                       }}
                     >
                       -

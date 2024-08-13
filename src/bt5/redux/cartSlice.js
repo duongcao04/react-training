@@ -55,11 +55,7 @@ export const cartSlice = createSlice({
         (product) => product.id === productId
       );
 
-      if (state.cart[foundProductExist].quantity === 1) {
-        state.cart[foundProductExist].quantity = 1;
-      } else {
-        state.cart[foundProductExist].quantity--;
-      }
+      state.cart[foundProductExist].quantity--;
 
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
